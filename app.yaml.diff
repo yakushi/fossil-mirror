@@ -1,0 +1,26 @@
+diff --git a/app.yaml b/app.yaml
+index aa8ebe141..c5a47fe30 100644
+--- a/app.yaml
++++ b/app.yaml
+@@ -54,6 +54,9 @@ properties:
+     containers:
+     - image: acrfossilapps001.azurecr.io/fossil-scm:latest
+       name: ca-fossil-app
++      volumeMounts:
++      - volumeName: repos-backup-volume
++        mountPath: /mnt
+       resources:
+         cpu: 0.5
+         ephemeralStorage: 2Gi
+@@ -66,7 +69,10 @@ properties:
+       rules: null
+     serviceBinds: null
+     terminationGracePeriodSeconds: null
+-    volumes: null
++    volumes:
++    - name: repos-backup-volume
++      storageName: mnt
++      storageType: AzureFile
+   workloadProfileName: Consumption
+ resourceGroup: rg-fossil-apps-free-japaneast-001
+ systemData:
