@@ -88,4 +88,5 @@ CMD [                       \
     "--create",             \
     "--jsmode", "bundled",  \
     "--user",   "admin",    \
+    "--https",              \
     "museum/repo.fossil" ]
